@@ -1,0 +1,28 @@
+<br />
+<form name="deviceListForm" role="form">
+	<div ng-controller="deviceListController" align="center">
+		<h1>Lista de Dispositivos</h1>
+		<div>
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Descripci&oacute;n</th>
+					<th>Im&aacute;gen</th>
+					<th>Fabricante</th>
+					<th>Precio</th>
+				</tr>
+				<tr ng-repeat="device in devices">
+			        <td>{{device.id}}</td>
+			        <td>{{device.name}}</td>
+			        <td>{{device.description}}</td>
+			        <td>{{device.image}}</td>
+			        <td>{{device.manufacturer}}</td>
+			        <td>{{device.price}}</td>
+    			</tr>
+			</table>
+		</div>
+		<button type="submit" ng-click="loadDevices()">Cargar 
+			Dispositivos</button>
+	</div>
+</form>
