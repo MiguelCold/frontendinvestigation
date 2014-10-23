@@ -1,9 +1,16 @@
-<br />
+<br/>
 <form name="deviceListForm" role="form">
 	<div ng-controller="deviceListController" align="center">
 		<h1>Lista de Dispositivos</h1>
+		<br/>
 		<div>
 			<table>
+			<thead>
+				<tr>
+					<th colspan="5"><input st-search="" placeholder="Búscar..." 
+						type="text">
+					</th>
+				</tr>
 				<tr>
 					<th>ID</th>
 					<th>Nombre</th>
@@ -12,6 +19,8 @@
 					<th>Fabricante</th>
 					<th>Precio</th>
 				</tr>
+			</thead>
+			<tbody>
 				<tr ng-repeat="device in devices">
 			        <td>{{device.id}}</td>
 			        <td>{{device.name}}</td>
@@ -19,10 +28,17 @@
 			        <td>{{device.image}}</td>
 			        <td>{{device.manufacturer}}</td>
 			        <td>{{device.price}}</td>
+			        <td><button type="button" ng-click="removeItem(row)">
+			        	Eliminar</button>
+			        </td>
     			</tr>
-			</table>
+    		</tbody>
+		</table>
 		</div>
-		<button type="submit" ng-click="loadDevices()">Cargar 
-			Dispositivos</button>
+		<br/>
+		<button type="button" ng-click="addNewDevice(row)">
+		Agregar un Dispositivo</button>
+		<button type="submit" ng-click="loadDevices()">
+		Cargar Dispositivos</button>	
 	</div>
 </form>

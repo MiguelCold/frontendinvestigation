@@ -1,22 +1,3 @@
-var mockDataForThisTest = "json=" + encodeURI(JSON.stringify([
-    {
-    	id: 1,
-    	name: "Samsung Galaxy S3",
-    	description: "Smartphone",
-    	image: "samsun_galaxy_s3.png",
-    	manufacturer: "Samsung",
-    	price: 900000
-    },
-    {
-    	id: 2,
-    	name: "Huawei Acend G610",
-    	description: "Smartphone",
-    	image: "huawei_acend_g610.png",
-    	manufacturer: "Huawei",
-    	price: 360000
-    }
-]));
-
 
 // / *** MODULES *** / //
 
