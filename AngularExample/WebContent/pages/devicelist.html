@@ -1,44 +1,108 @@
-<br/>
-<form name="deviceListForm" role="form">
-	<div ng-controller="deviceListController" align="center">
-		<h1>Lista de Dispositivos</h1>
-		<br/>
+<br />
+<form class="form-horizontal" name="deviceListForm" role="form">
+	<div class="container">
 		<div>
-			<table>
-			<thead>
-				<tr>
-					<th colspan="5"><input st-search="" placeholder="Búscar..." 
-						type="text">
-					</th>
-				</tr>
-				<tr>
-					<th>ID</th>
-					<th>Nombre</th>
-					<th>Descripci&oacute;n</th>
-					<th>Im&aacute;gen</th>
-					<th>Fabricante</th>
-					<th>Precio</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="device in devices">
-			        <td>{{device.id}}</td>
-			        <td>{{device.name}}</td>
-			        <td>{{device.description}}</td>
-			        <td>{{device.image}}</td>
-			        <td>{{device.manufacturer}}</td>
-			        <td>{{device.price}}</td>
-			        <td><button type="button" ng-click="removeItem(row)">
-			        	Eliminar</button>
-			        </td>
-    			</tr>
-    		</tbody>
-		</table>
+			<h1 style="text-align: center;">Agregar Nuevo Dispositivo</h1>
+			<br />
+			<div class="row" style="text-align: center;">
+				<div class="col-lg-2"
+					style="background-color: lavender; text-align: center;">
+					<div class="input-group">
+						<span class="input-group-addon"> <label
+							class="control-label">Nombre: </label> <input
+							class="form-control" type="text" name="name" ng-model="name" />
+						</span>
+					</div>
+				</div>
+				<div class="col-lg-2"
+					style="background-color: lavender; text-align: center;">
+					<div class="input-group">
+						<span class="input-group-addon"> <label
+							class="control-label">Memoria RAM: </label> <input
+							class="form-control" type="text" name="name" ng-model="memoryRAM" />
+						</span>
+					</div>
+				</div>
+				<div class="col-lg-2"
+					style="background-color: lavender; text-align: center;">
+					<div class="input-group">
+						<span class="input-group-addon"> <label
+							class="control-label">Procesador: </label> <input
+							class="form-control" type="text" name="name" ng-model="processor" />
+						</span>
+					</div>
+				</div>
+				<div class="col-lg-2"
+					style="background-color: lavender; text-align: center;">
+					<div class="input-group">
+						<span class="input-group-addon"> <label
+							class="control-label">Memoria Interna: </label> <input
+							class="form-control" type="text" name="name"
+							ng-model="internMemory" />
+						</span>
+					</div>
+				</div>
+				<div class="col-lg-2"
+					style="background-color: lavender; text-align: center;">
+					<div class="input-group">
+						<span class="input-group-addon"> <label
+							class="control-label">A&ntilde;o: </label> <input
+							class="form-control" type="number" name="name" ng-model="year" />
+						</span>
+					</div>
+				</div>
+				<div class="col-lg-2"
+					style="background-color: lavender; text-align: center;">
+					<div class="input-group">
+						<span class="input-group-addon"> <label
+							class="control-label">Precio: </label> <input
+							class="form-control" type="number" name="name" ng-model="price" />
+						</span>
+					</div>
+				</div>
+				<button class="btn btn-success" type="button"
+					ng-click="addNewDevice()">
+					<span class="glyphicon glyphicon-save"></span> Agregar un
+					Dispositivo
+				</button>
+			</div>
+			<br/>
+			<h1 style="text-align: center;">Lista de Dispositivos</h1>
+			<br />
+			<table class="table table-striped" style="text-align: center;">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nombre</th>
+						<th>Memoria RAM</th>
+						<th>Procesador</th>
+						<th>Memoria Interna</th>
+						<th>A&ntilde;o</th>
+						<th>Precio</th>
+						<th>Imagen</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="device in displayedCollection">
+						<td>{{device.id}}</td>
+						<td>{{device.name}}</td>
+						<td>{{device.memoryRAM}}</td>
+						<td>{{device.processor}}</td>
+						<td>{{device.internMemory}}</td>
+						<td>{{device.year}}</td>
+						<td>${{device.price}}</td>
+						<td><img src="./resources/images/smartphone.jpg" width="40px"
+							height="40px"></img></td>
+						<td><button class="btn btn-success" type="button"
+								ng-click="removeDevice(device)">
+								<span class="glyphicon glyphicon-remove"></span> Eliminar
+							</button></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-		<br/>
-		<button type="button" ng-click="addNewDevice(row)">
-		Agregar un Dispositivo</button>
-		<button type="submit" ng-click="loadDevices()">
-		Cargar Dispositivos</button>	
+
+
 	</div>
+
 </form>
